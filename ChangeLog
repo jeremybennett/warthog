@@ -1,0 +1,12 @@
+2015-03-22  Peter Bennett <thelargeostrich@gmail.com>
+
+	Initial project files.
+
+	* .gitignore: Created.
+	* ChangeLog: Created.
+	* LICENSE: Created.
+	* README.md: Created.
+	* batterycover.scad: Created.
+	* engines.scad: Created.
+	* minkowski-polyhedron.scad: Created.
+	* tyredwheel.scad: Created.

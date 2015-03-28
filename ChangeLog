@@ -1,3 +1,10 @@
+2015-03-28  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+
+	* engines.scad: Rotate whole design for printing.
+	(engines): Created.
+	* minkowski-polyhedron.scad: Clean up formatting.
+	(fuse_sect, pegs, holes): Created.
+
 2015-03-22  Peter Bennett <thelargeostrich@gmail.com>
 
 	Initial project files.

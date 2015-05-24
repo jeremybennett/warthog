@@ -1,3 +1,8 @@
+2015-05-24  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+
+	* engines.scad: Updated for clarity.
+	* nacelle.scad: Created.
+
 2015-05-24  Peter Bennett <thelargeostrich@gmail.com>
 
 	* engines.scad: Updated.

@@ -30,7 +30,6 @@ module mypoly () {
 }
 
 epsilon = 0.001;
-module engines () {
 difference (){
 	union (){
 		intersection (){
@@ -123,7 +122,3 @@ difference (){
 				rotate ([-5,0,0]) 
 					cylinder(h = 160, r = 27.5);}		
 }
-}
-
-rotate (a = [5,0,0])
-	engines ();

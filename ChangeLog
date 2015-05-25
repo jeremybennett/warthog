@@ -1,4 +1,8 @@
-2015-05-24  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+2015-05-25  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+
+	* nacelle.scad (nacelle_lower): Rotate 180 to facilitate printing.
+
+2015-05-25  Jeremy Bennett  <jeremy.bennett@embecosm.com>
 
 	* .gitignore: Created (despite what the first ChangeLog entry says).
 	* nacelle.scad: Remove includes, add 0.4mm margin around all bolt

@@ -156,13 +156,15 @@ module nacelle_upper () {
 }
 
 
-// Lower half of nacelle - size we can print
+// Lower half of nacelle - size we can print. Rotate to put lug at bottom.
 module nacelle_lower () {
-    intersection () {
-	translate (v = [-500, -500, -1000 + 45])
-	    cube (size = [1000, 1000, 1000], center = false);
-	nacelle ();
-    }
+    rotate (a = [180, 0, 0])
+        translate (v = [0, 0, -45])
+            intersection () {
+	       translate (v = [-500, -500, -1000 + 45])
+	           cube (size = [1000, 1000, 1000], center = false);
+	       nacelle ();
+            }
 }
 
 

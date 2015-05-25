@@ -1,5 +1,14 @@
 2015-05-24  Jeremy Bennett  <jeremy.bennett@embecosm.com>
 
+	* .gitignore: Created (despite what the first ChangeLog entry says).
+	* nacelle.scad: Remove includes, add 0.4mm margin around all bolt
+	holes nominal size.
+	(bolt_hole): indent for circular head, not hex head, and 4mm deep.
+	(bolt_hole_upper, bolt_hole_lower):  Adjust X offsets.
+	(nacelle_upper, nacelle_lower): Created.
+
+2015-05-24  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+
 	* engines.scad: Updated for clarity.
 	* nacelle.scad: Created.
 

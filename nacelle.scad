@@ -12,10 +12,6 @@
 
 // 45678901234567890123456789012345678901234567890123456789012345678901234567890
 
-include <MCAD/boxes.scad>
-include <MCAD/materials.scad>
-include <MCAD/regular_shapes.scad>
-
 
 // Small amount to ensure overlap of components
 EPS = 0.001;
@@ -78,15 +74,15 @@ module wire_duct () {
 }
 
 
-// A basic M3 bolt hole.  Hex head retainer
+// A basic M3 bolt hole.  Hex nut retainer
 module bolt_hole () {
     union () {
-	// Head
+	// Head - circular 5.5mm + 0.4mm gap. Head is 4mm + 0.4mm gap
 	rotate (a = [0, -90, 0])
-	    cylinder (h = 3, r = 5.5 / 2, $fn = 6);
-	// Shank
+	    cylinder (h = 4 + 0.4, r = (5.5 + 0.4) / 2, $fn = 24);
+	// Shank 3mm + 0.4mm gap
 	rotate (a = [0, -90, 0])
-	    cylinder (h = 20, r = 3 / 2, $fn = 24);
+	    cylinder (h = 20, r = (3 + 0.4) / 2, $fn = 24);
     }
 }
 
@@ -94,15 +90,16 @@ module bolt_hole () {
 module bolt_hole_upper () {
     rotate (a = [ROT, 0, 0])
 	// Y offset is hull inner diameter, less a little bit
-        translate (v = [-26.5, 0, 60])
+        translate (v = [-26.3, 0, 60])
             bolt_hole ();
 }
 
 
-// Upper bolt_hole () {
+// Lower bolt_hole () {
 module bolt_hole_lower () {
     rotate (a = [ROT, 0, 0])
-        translate (v = [-26.5, 0, 30])
+	// Y offset is hull inner diameter, less a little bit
+        translate (v = [-26.8, 0, 30])
             bolt_hole ();
 }
 
@@ -120,11 +117,11 @@ module lug () {
 		     translate (v = [0, -4,0])
 	                 cube (size = [4, 8, 6]);
 		 }
-		 // Screw head
+		 // Screw hex nut 5.5 + 0.4 for gap.
 		 translate (v = [0, 0, 4.5])
-		     cylinder (r = 5.5 / 2, h = 2, $fn = 6);
-		 // Screw shank
-		 cylinder (r = 3 / 2, h = 20, center = true, $fn = 24);
+		     cylinder (r = (5.5 + 0.4) / 2, h = 2, $fn = 6);
+		 // Screw shank + 0.4 for gap
+		 cylinder (r = (3 + 0.4) / 2, h = 20, center = true, $fn = 24);
 	     }
     }
 }
@@ -148,18 +145,31 @@ module nacelle () {
 }
 
 
-NACELLE_UPPER = false;
+// Upper half of nacelle - size we can print
+module nacelle_upper () {
+    translate (v = [0, 0, -45])
+        intersection () {
+	   translate (v = [-500, -500, 45])
+	       cube (size = [1000, 1000, 1000], center = false);
+	   nacelle ();
+        }
+}
 
-if (NACELLE_UPPER) {
-    intersection () {
-	translate (v = [-500, -500, 45])
-	cube (size = [1000, 1000, 1000], center = false);
-	nacelle ();
-    }
-} else {
+
+// Lower half of nacelle - size we can print
+module nacelle_lower () {
     intersection () {
 	translate (v = [-500, -500, -1000 + 45])
 	    cube (size = [1000, 1000, 1000], center = false);
 	nacelle ();
     }
+}
+
+
+NACELLE_UPPER = false;
+
+if (NACELLE_UPPER) {
+    nacelle_upper ();
+} else {
+    nacelle_lower ();
 }

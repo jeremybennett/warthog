@@ -1,5 +1,15 @@
 2015-05-25  Jeremy Bennett  <jeremy.bennett@embecosm.com>
 
+	* warthod.scad:  Added license header, define slice positions and EPS.
+	(slice): Created.
+	(fuselage_poly): Renamed from mypoly and removed color.
+	(crossbar, tailplate, cross_brace, wall_brace, lug_body, lug)
+	(all_supports, fuselage_solid, fuselage_outer, fuselage_inner)
+	(fuselage_very_inner, fuselage_shell, fuselage): Created.
+	(the_rest): Placeholder module for all the old code.
+
+2015-05-25  Jeremy Bennett  <jeremy.bennett@embecosm.com>
+
 	* nacelle.scad (nacelle_lower): Rotate 180 to facilitate printing.
 
 2015-05-25  Jeremy Bennett  <jeremy.bennett@embecosm.com>
